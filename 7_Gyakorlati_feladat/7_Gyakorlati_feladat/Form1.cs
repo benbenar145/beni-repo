@@ -21,6 +21,7 @@ namespace _7_Gyakorlati_feladat
             label1.Text = Resource1.FullName; // label1
             button1.Text = Resource1.Add; // button1
             button2.Text = Resource1.Write;
+            button3.Text = Resource1.Delete;
 
             // listbox1 - listUsers
             listBox1.DataSource = users;
@@ -52,6 +53,15 @@ namespace _7_Gyakorlati_feladat
                 }
 
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //this.listBox1.DataSource = null;
+            //listBox1.Items.Remove(listBox1.SelectedItem);
+
+            User torlendo = (User)listBox1.SelectedItem;
+            users.Remove(torlendo);
         }
     }
 }
