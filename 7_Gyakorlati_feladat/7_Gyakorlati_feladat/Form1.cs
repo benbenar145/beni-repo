@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace _7_Gyakorlati_feladat
             InitializeComponent();
             label1.Text = Resource1.FullName; // label1
             button1.Text = Resource1.Add; // button1
+            button2.Text = Resource1.Write;
 
             // listbox1 - listUsers
             listBox1.DataSource = users;
@@ -33,6 +35,23 @@ namespace _7_Gyakorlati_feladat
                 FullName = textBox1.Text
             };
             users.Add(u);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
+                {
+                    foreach (var s in users)
+                    {
+                        sw.WriteLine(s.ID);
+                        sw.WriteLine(s.FullName);
+                    }
+                }
+
+            }
         }
     }
 }
