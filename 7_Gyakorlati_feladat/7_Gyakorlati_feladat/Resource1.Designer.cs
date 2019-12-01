@@ -70,11 +70,11 @@ namespace _7_Gyakorlati_feladat {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Keresztnév.
+        ///   Looks up a localized string similar to Teljesnév.
         /// </summary>
-        internal static string FirstName {
+        internal static string FullName {
             get {
-                return ResourceManager.GetString("FirstName", resourceCulture);
+                return ResourceManager.GetString("FullName", resourceCulture);
             }
         }
         
